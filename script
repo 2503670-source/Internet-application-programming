@@ -1,0 +1,181 @@
+// ================================
+// LIN'S CAFE AND RESTAURANT
+// JavaScript
+// ================================
+
+
+// Order system
+
+let order = [];
+
+let total = 0;
+
+
+// Add food to order
+
+function addToOrder(itemName, itemPrice) {
+
+    order.push({
+        name: itemName,
+        price: itemPrice
+    });
+
+    total += itemPrice;
+
+    displayOrder();
+
+    alert(itemName + " has been added to your order!");
+}
+
+
+// Display order
+
+function displayOrder() {
+
+    const orderList = document.getElementById("order-list");
+
+    const totalDisplay = document.getElementById("total");
+
+
+    if (order.length === 0) {
+
+        orderList.innerHTML =
+            "<p>Your order is currently empty.</p>";
+
+        totalDisplay.textContent = "0";
+
+        return;
+    }
+
+
+    orderList.innerHTML = "";
+
+
+    order.forEach(function(item, index) {
+
+        const orderItem = document.createElement("div");
+
+        orderItem.className = "order-item";
+
+
+        orderItem.innerHTML = `
+            <span>${item.name}</span>
+
+            <span>
+                KSh ${item.price}
+                <button onclick="removeItem(${index})">
+                    ❌
+                </button>
+            </span>
+        `;
+
+
+        orderList.appendChild(orderItem);
+
+    });
+
+
+    totalDisplay.textContent = total;
+}
+
+
+// Remove item from order
+
+function removeItem(index) {
+
+    total -= order[index].price;
+
+    order.splice(index, 1);
+
+    displayOrder();
+}
+
+
+// Clear entire order
+
+function clearOrder() {
+
+    order = [];
+
+    total = 0;
+
+    displayOrder();
+
+}
+
+
+// ================================
+// REVIEW SYSTEM
+// ================================
+
+const reviewForm = document.getElementById("reviewForm");
+
+
+reviewForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById("name").value;
+
+    const rating =
+        document.getElementById("rating").value;
+
+    const comment =
+        document.getElementById("comment").value;
+
+
+    const reviewsContainer =
+        document.getElementById("reviews-container");
+
+
+    // Create stars
+
+    let stars = "";
+
+    for (let i = 0; i < 5; i++) {
+
+        if (i < rating) {
+
+            stars += "★";
+
+        } else {
+
+            stars += "☆";
+
+        }
+
+    }
+
+
+    // Create review
+
+    const newReview =
+        document.createElement("div");
+
+    newReview.className = "review";
+
+
+    newReview.innerHTML = `
+        <h3>${name}</h3>
+
+        <div class="stars">
+            ${stars}
+        </div>
+
+        <p>"${comment}"</p>
+    `;
+
+
+    reviewsContainer.appendChild(newReview);
+
+
+    // Reset form
+
+    reviewForm.reset();
+
+
+    alert("Thank you for your review!");
+
+});
