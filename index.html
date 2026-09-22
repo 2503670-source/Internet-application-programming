@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lin's Cafe and Restaurant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Lin's Cafe & Restaurant</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Lin's Cafe & Restaurant</h1>
+
+            <p>
+                Delicious food, warm hospitality and a place to enjoy
+                every moment.
+            </p>
+
+            <a href="#menu" class="btn">View Our Menu</a>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Lin's Cafe</h2>
+
+        <p>
+            At Lin's Cafe and Restaurant, we believe good food brings
+            people together. We serve freshly prepared meals using
+            quality ingredients in a comfortable and welcoming environment.
+        </p>
+    </section>
+
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+
+        <h2>Our Menu</h2>
+
+        <p class="section-description">
+            Choose from some of our favourite meals and drinks.
+        </p>
+
+        <div class="menu-container">
+
+            <!-- Food Item 1 -->
+            <div class="menu-card">
+                <div class="food-image">🍗</div>
+
+                <h3>Chicken & Chips</h3>
+
+                <p>
+                    Crispy chicken served with golden chips and fresh salad.
+                </p>
+
+                <span class="price">KSh 650</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Chicken & Chips', 650)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 2 -->
+            <div class="menu-card">
+                <div class="food-image">🍛</div>
+
+                <h3>Chicken Pilau</h3>
+
+                <p>
+                    Fragrant Kenyan-style pilau served with chicken and kachumbari.
+                </p>
+
+                <span class="price">KSh 550</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Chicken Pilau', 550)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 3 -->
+            <div class="menu-card">
+                <div class="food-image">🥩</div>
+
+                <h3>Beef Stew & Ugali</h3>
+
+                <p>
+                    Tender beef stew served with traditional ugali and vegetables.
+                </p>
+
+                <span class="price">KSh 500</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Beef Stew & Ugali', 500)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 4 -->
+            <div class="menu-card">
+                <div class="food-image">🍝</div>
+
+                <h3>Chicken Pasta</h3>
+
+                <p>
+                    Creamy pasta prepared with tender chicken and vegetables.
+                </p>
+
+                <span class="price">KSh 600</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Chicken Pasta', 600)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 5 -->
+            <div class="menu-card">
+                <div class="food-image">🥗</div>
+
+                <h3>Fresh Garden Salad</h3>
+
+                <p>
+                    A healthy mix of fresh vegetables and a light dressing.
+                </p>
+
+                <span class="price">KSh 350</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Fresh Garden Salad', 350)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 6 -->
+            <div class="menu-card">
+                <div class="food-image">🍰</div>
+
+                <h3>Chocolate Cake</h3>
+
+                <p>
+                    Soft and delicious chocolate cake served as a sweet treat.
+                </p>
+
+                <span class="price">KSh 300</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Chocolate Cake', 300)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 7 -->
+            <div class="menu-card">
+                <div class="food-image">☕</div>
+
+                <h3>Kenyan Tea</h3>
+
+                <p>
+                    Freshly brewed Kenyan tea served hot.
+                </p>
+
+                <span class="price">KSh 150</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Kenyan Tea', 150)">
+                    Add to Order
+                </button>
+            </div>
+
+
+            <!-- Food Item 8 -->
+            <div class="menu-card">
+                <div class="food-image">🥤</div>
+
+                <h3>Fresh Fruit Juice</h3>
+
+                <p>
+                    A refreshing glass of freshly prepared fruit juice.
+                </p>
+
+                <span class="price">KSh 250</span>
+
+                <button class="order-btn"
+                    onclick="addToOrder('Fresh Fruit Juice', 250)">
+                    Add to Order
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Order Section -->
+    <section class="order-section">
+
+        <h2>Your Order</h2>
+
+        <div id="order-list">
+            <p>Your order is currently empty.</p>
+        </div>
+
+        <h3>Total: KSh <span id="total">0</span></h3>
+
+        <button class="clear-btn" onclick="clearOrder()">
+            Clear Order
+        </button>
+
+    </section>
+
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+
+        <h2>Customer Reviews</h2>
+
+        <div id="reviews-container">
+
+            <div class="review">
+                <h3>Sarah</h3>
+                <div class="stars">★★★★★</div>
+                <p>
+                    "The food was delicious and the service was excellent!"
+                </p>
+            </div>
+
+            <div class="review">
+                <h3>Brian</h3>
+                <div class="stars">★★★★☆</div>
+                <p>
+                    "Lovely atmosphere and very tasty food. I will definitely
+                    come back."
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Review Form -->
+        <div class="review-form">
+
+            <h3>Leave a Review</h3>
+
+            <form id="reviewForm">
+
+                <label for="name">Your Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="rating">Rating</label>
+
+                <select id="rating" required>
+                    <option value="">Choose a rating</option>
+                    <option value="5">★★★★★ - Excellent</option>
+                    <option value="4">★★★★☆ - Very Good</option>
+                    <option value="3">★★★☆☆ - Good</option>
+                    <option value="2">★★☆☆☆ - Fair</option>
+                    <option value="1">★☆☆☆☆ - Poor</option>
+                </select>
+
+
+                <label for="comment">Your Review</label>
+
+                <textarea
+                    id="comment"
+                    rows="5"
+                    placeholder="Write your review here..."
+                    required
+                ></textarea>
+
+
+                <button type="submit" class="submit-btn">
+                    Submit Review
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📍 Nairobi, Kenya</p>
+
+        <p>📞 +254 700 000 000</p>
+
+        <p>✉️ info@linscafe.com</p>
+
+        <p>Open daily: 8:00 AM - 10:00 PM</p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Lin's Cafe & Restaurant. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
